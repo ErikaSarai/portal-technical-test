@@ -1,64 +1,38 @@
-<p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400"></a></p>
+# Portal Technical Test
 
-<p align="center">
-<a href="https://travis-ci.org/laravel/framework"><img src="https://travis-ci.org/laravel/framework.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/dt/laravel/framework" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/v/laravel/framework" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
-</p>
+<p align="center"><a href="#" target="_blank"><img src="#" ></a></p>
+✨ Prueba Técnica, con un módulo auth (Inicio de Sesión y Register), y un cron job de comando artesanal programado para ejecutarse una una vez al día a las 15:00 (Zona Horaria: America/Asuncion).
 
-## About Laravel
+## 🚀 Instalación
+1. Clonar el Proyecto.
+3. Crear el archivo `.env` a base del archivo `.env.example`, (debe poner sus credenciales para conectarse a su administrador de base de datos local).
+4. Ejecutar el comando `composer install`, y luego ejecutar `npm install` para instalar los paquetes necesarios.
+5. Ejecutar el comando `php artisan migrate` para migrar todas las migraciones con sus tablas.
+6. Ejecuta el comando `php artisan key:generate`.
+7. Para correr el entorno local, ejecute: `php artisan serve`.
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
+## 🛠 Pruebas en Local (Scheduling Artisan Commands)
+El job está programado para ejecutarse diariamente a las 15:00 (Zona Horaria: America/Asuncion).
+Para hacer pruebas en local, puede cambiar la hora en el que quiere se ejecute en el `App\Console\Kernel.php`. 
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+El cron ejecuta un comando el cual se encarga de mandar un correo a todos los correos registrados, y contiene los usuarios registrados en las últimas 24 horas. 
 
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
+Sin embargo, se agrego en el home, un botón para ejecutar esta misma funcionalidad de manera manual cuando se desee.
 
-## Learning Laravel
+La zona horaria esta configurada para America/Asuncion.
 
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework.
+El comando para ejecutar los jobs desde local es: php artisan schedule:run. Si se utilizara en el servidor necesita agregar un entrada cron:
 
-If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains over 2000 video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
+1-. * * * * * cd /path-to-your-project && php artisan schedule:run >> /dev/null 2>&1
 
-## Laravel Sponsors
+Este Cron llamará al programador de tareas de Laravel cada minuto. Cuando el comando schedule:run es ejecutado, Laravel evaluará tus tareas programadas y ejecutará las tareas pendientes.
 
-We would like to extend our thanks to the following sponsors for funding Laravel development. If you are interested in becoming a sponsor, please visit the Laravel [Patreon page](https://patreon.com/taylorotwell).
 
-### Premium Partners
-
-- **[Vehikl](https://vehikl.com/)**
-- **[Tighten Co.](https://tighten.co)**
-- **[Kirschbaum Development Group](https://kirschbaumdevelopment.com)**
-- **[64 Robots](https://64robots.com)**
-- **[Cubet Techno Labs](https://cubettech.com)**
-- **[Cyber-Duck](https://cyber-duck.co.uk)**
-- **[Many](https://www.many.co.uk)**
-- **[Webdock, Fast VPS Hosting](https://www.webdock.io/en)**
-- **[DevSquad](https://devsquad.com)**
-- **[Curotec](https://www.curotec.com/services/technologies/laravel/)**
-- **[OP.GG](https://op.gg)**
-- **[WebReinvent](https://webreinvent.com/?utm_source=laravel&utm_medium=github&utm_campaign=patreon-sponsors)**
-- **[Lendio](https://lendio.com)**
-
-## Contributing
-
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
-
-## Code of Conduct
-
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
-
-## Security Vulnerabilities
-
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
-
-## License
-
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+## ✨ Lenguajes de programación y framework
+* PHP 8.1.2
+* Laravel Versión  9.1.0
+* MySQL
+* JavaScript
+* Jquery
+* HTML5
+* AJAX
