@@ -9,15 +9,25 @@
 
     <title>{{ config('app.name', 'Laravel') }}</title>
 
-    <!-- Scripts -->
-    <script src="{{ asset('js/app.js') }}" defer></script>
-
     <!-- Fonts -->
     <link rel="dns-prefetch" href="//fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet">
 
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+
+    <!-- Scripts -->
+    <script src="{{ asset('js/app.js') }}" defer></script>
+    <script src="{{ asset('js/jquery/jquery.min.js') }}"></script>
+
+    {{-- Select2 --}}
+
+    <link href="{{ asset('css/select2/select2.min.css') }}" rel="stylesheet">
+    <script src="{{ asset('js/select2/select2.min.js') }}"></script>
+
+    <link href="{{ asset('css/select2/select2-bootstrap-5-theme.min.css') }}" rel="stylesheet">
+    <link href="{{ asset('css/select2/select2-bootstrap-5-theme.rtl.min.css') }}" rel="stylesheet">
+
 </head>
 <body>
     <div id="app">
@@ -42,13 +52,13 @@
                         @guest
                             @if (Route::has('login'))
                                 <li class="nav-item">
-                                    <a class="nav-link" href="{{ route('login') }}">{{ __('Login') }}</a>
+                                    <a class="nav-link" href="{{ route('login') }}">Iniciar Sesión</a>
                                 </li>
                             @endif
 
                             @if (Route::has('register'))
                                 <li class="nav-item">
-                                    <a class="nav-link" href="{{ route('register') }}">{{ __('Register') }}</a>
+                                    <a class="nav-link" href="{{ route('register') }}">Registrarse</a>
                                 </li>
                             @endif
                         @else
@@ -61,7 +71,7 @@
                                     <a class="dropdown-item" href="{{ route('logout') }}"
                                        onclick="event.preventDefault();
                                                      document.getElementById('logout-form').submit();">
-                                        {{ __('Logout') }}
+                                        Cerrar Sesión
                                     </a>
 
                                     <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
