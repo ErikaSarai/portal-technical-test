@@ -3,6 +3,10 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Mail\SendMailable;
+use Illuminate\Support\Facades\Mail;
+use App\Models\User;
+use Carbon\Carbon;
 
 class HomeController extends Controller
 {
@@ -24,5 +28,17 @@ class HomeController extends Controller
     public function index()
     {
         return view('home');
+    }
+
+    public function sendEmails()
+    {
+        $users = User::all();
+        $totalUsers = $users->where('created_at', '>', Carbon::now()->subHours(24))->count();
+
+        foreach ($users as $key => $user) {
+            Mail::to($user->email)->send(new SendMailable($totalUsers));
+        }
+
+        return 'send emails';
     }
 }

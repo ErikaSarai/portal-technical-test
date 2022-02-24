@@ -15,18 +15,23 @@
 
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+    <link href="{{ asset('css/select2/select2.min.css') }}" rel="stylesheet">
+    <link href="{{ asset('css/select2/select2-bootstrap-5-theme.min.css') }}" rel="stylesheet">
+    <link href="{{ asset('css/select2/select2-bootstrap-5-theme.rtl.min.css') }}" rel="stylesheet">
+
 
     <!-- Scripts -->
     <script src="{{ asset('js/app.js') }}" defer></script>
     <script src="{{ asset('js/jquery/jquery.min.js') }}"></script>
-
-    {{-- Select2 --}}
-
-    <link href="{{ asset('css/select2/select2.min.css') }}" rel="stylesheet">
     <script src="{{ asset('js/select2/select2.min.js') }}"></script>
 
-    <link href="{{ asset('css/select2/select2-bootstrap-5-theme.min.css') }}" rel="stylesheet">
-    <link href="{{ asset('css/select2/select2-bootstrap-5-theme.rtl.min.css') }}" rel="stylesheet">
+    <script>
+        $.ajaxSetup({
+            headers: {
+                "X-CSRF-TOKEN": $('meta[name="csrf-token"]').attr("content"),
+            },
+        });
+    </script>
 
 </head>
 <body>
