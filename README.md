@@ -14,9 +14,7 @@
 El job está programado para ejecutarse diariamente a las 15:00 (Zona Horaria: America/Asuncion).
 Para hacer pruebas en local, puede cambiar la hora en el que quiere se ejecute en el `App\Console\Kernel.php`. 
 
-El cron ejecuta un comando el cual se encarga de mandar un correo a todos los correos registrados, y contiene los usuarios registrados en las últimas 24 horas. 
-
-Sin embargo, se agrego en el home, un botón para ejecutar esta misma funcionalidad de manera manual cuando se desee. 
+El cron ejecuta un comando el cual se encarga de mandar un correo a todos los correos registrados, y contiene los usuarios registrados en las últimas 24 horas. Sin embargo, se agrego en el home, un botón para ejecutar esta misma funcionalidad de manera manual cuando se desee. 
 
 El comando para ejecutar los jobs desde local es: php artisan schedule:run. 
 
