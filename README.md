@@ -1,6 +1,5 @@
 # Portal Technical Test
 
-<p align="center"><a href="#" target="_blank"><img src="#" ></a></p>
 ✨ Prueba Técnica, con un módulo auth (Inicio de Sesión y Register), y un cron job de comando artesanal programado para ejecutarse una una vez al día a las 15:00 (Zona Horaria: America/Asuncion).
 
 ## 🚀 Instalación
